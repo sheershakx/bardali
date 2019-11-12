@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "236889815452",
+    "firebase_url": "https://bardali-40803.firebaseio.com",
+    "project_id": "bardali-40803",
+    "storage_bucket": "bardali-40803.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236889815452:android:46906569c7a51e8d14b059",
+        "android_client_info": {
+          "package_name": "com.srg.prototype"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236889815452-aa66ui3ngtm147e6lq1lotpu588s6tk2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.srg.prototype",
+            "certificate_hash": "c92c6b25753ec7a965dfdcfdfc4e42d90680a654"
+          }
+        },
+        {
+          "client_id": "236889815452-n2nl6enosprb81h7gcr8m8benehe148g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApcylZHVM98YEuNbQJKL4-kXgWWPV-xJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236889815452-n2nl6enosprb81h7gcr8m8benehe148g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

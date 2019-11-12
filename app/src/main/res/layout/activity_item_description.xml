@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".ItemDescription">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:background="@color/colorPrimaryDark">
+
+        <Button
+            android:id="@+id/openchat"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="230dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/signupbtn_design"
+            android:text="बार्गेन गर्नुहोस" />
+
+        <ImageView
+            android:onClick="gobacktomain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/backarrow" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9.4"
+        android:background="#D3D3D3"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:background="#fff"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="97dp"
+                    android:text="होम डेलिभरीको व्यवस्था :"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="38dp"
+                    android:text="छैन"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:padding="10dp"
+                    android:text="सामानको नाम :"
+                    android:textSize="22sp"
+                    android:textColor="@color/colorAccent"/>
+
+                <TextView
+                    android:id="@+id/textviewitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="लटरम्मै घर मा फलेको आप"
+                    android:padding="10dp"
+                    android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_below="@+id/textviewitem"
+                    android:background="@color/colorPrimaryDark" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:padding="10dp"
+                    android:text="परिमाण :"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/textviewquantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider2"
+                   android:layout_marginLeft="220dp"
+                    android:layout_marginTop="10dp"
+
+                    android:hint="1"
+                    android:padding="10dp"
+                    android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/textviewquantity"
+                    android:background="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:padding="10dp"
+                    android:text="दर :"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/textviewrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider3"
+
+                   android:layout_marginLeft="220dp"
+                    android:hint="Rs 300"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/textviewrate"
+                    android:background="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider4"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:padding="10dp"
+                    android:text="जम्मा मूल्य :"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/textviewtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="49dp"
+                    android:layout_below="@id/divider4"
+                 android:layout_marginTop="10dp"
+                    android:layout_marginLeft="220dp"
+                    android:hint="Rs 1250"
+                    android:padding="10dp"
+                    android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_below="@+id/textviewtotal"
+                    android:background="@color/colorPrimaryDark" />
+
+                <ImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_below="@id/divider5"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="0dp"
+                    android:fitsSystemWindows="true"
+                    android:src="@drawable/sampleimage" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_below="@+id/imageview"
+                    android:background="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/textviewdesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider6"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:text="छोटो जानकारी :"
+                    android:textSize="22sp"
+                    android:textColor="@color/colorAccent"/>
+
+                <TextView
+                    android:id="@+id/textviewdescresult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textviewdesc"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:hint="एकदमै ओर्गानिक आप हो | घरमा खाने कोइ भएनन् तेही कारणले बेच्न आटेको"
+                    android:padding="10dp"
+                    android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/textviewdescresult"
+                    android:background="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider7"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="20dp"
+                    android:padding="10dp"
+                    android:text="बिक्रेताको नाम :"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/textviewsellersname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider7"
+                    android:layout_marginTop="10dp"
+                    android:hint="शीर्षक राज गौतम"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginBottom="20dp"/>
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

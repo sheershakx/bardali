@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".chat">
+
+    <RelativeLayout
+        android:id="@+id/sendmessageOpenLayout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent">
+
+        <EditText
+            android:id="@+id/typemessageOpen"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:background="#fff"
+            android:hint="Type your message here..." />
+
+        <Button
+            android:id="@+id/sendmessageOpen"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Send" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewChatOpen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/sendmessageOpenLayout">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

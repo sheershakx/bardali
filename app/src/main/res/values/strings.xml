@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Bardali</string>
+
+    <string-array name="unit">
+        <item>पिस</item>
+        <item>जोडी</item>
+        <item>दर्जन</item>
+        <item>प्याकेट</item>
+        <item>किलो</item>
+        <item>लिटर</item>
+    </string-array>
+</resources>

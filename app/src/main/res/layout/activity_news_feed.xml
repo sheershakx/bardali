@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:weightSum="10"
+tools:context=".newsFeed">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:background="@color/colorPrimaryDark">
+
+    <Button
+        android:id="@+id/displaynews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="click to ssee news" />
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="9">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>
+
+</LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

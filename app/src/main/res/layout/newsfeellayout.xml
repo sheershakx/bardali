@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutfeed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="भोजपुरे अकबरे खोर्सानी"
+                android:textColor="#00574B"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/itemQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:padding="5dp"
+                android:text="१ केजी"
+                android:textColor="#00574B"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_below="@+id/itemName"
+                android:background="?android:attr/listDivider" />
+
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="320dp"
+                android:layout_height="140dp"
+                android:layout_below="@id/divider1"
+                android:layout_centerInParent="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/sampleimage"/>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_below="@+id/itemImage"
+                android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:padding="5dp"
+                android:text="दर:"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/itemRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:layout_marginLeft="25dp"
+                android:padding="5dp"
+                android:text="३०० प्रति केजी"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="265dp"
+                android:layout_marginEnd="74dp"
+                android:padding="5dp"
+                android:text="जम्मा:"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/itemTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/colorAccent"
+                android:padding="5dp"
+                android:text="रु ६००"
+                android:textSize="15sp" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewlog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/log_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:text="This is user's activity log message view"/>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/divider8"
+        android:layout_below="@id/cardviewlog"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:backgroundTint="#000"
+        android:background="?android:attr/listDivider" />
+
+
+</RelativeLayout>

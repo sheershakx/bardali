@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".seller_tab">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:onClick="goback"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_margin="6dp"
+            android:src="@drawable/backarrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="बिक्रेताको कक्ष"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9.4"
+        android:background="@drawable/back2"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:background="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:padding="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/itemName1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="सामानको नाम"
+                        android:textSize="20sp" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:padding="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/itemDesc1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="छोटो जानकारी"
+                        android:textSize="20sp" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#666"
+                    android:fitsSystemWindows="true" />
+
+                <Button
+                    android:id="@+id/choosephotobtn"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:shadowRadius="@integer/google_play_services_version"
+                    android:text="फोटो हाल्नुहोस" />
+
+                <ImageView
+                    android:id="@+id/choosedimageview"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:src="@drawable/sampleimage" />
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#666"
+                    android:fitsSystemWindows="true" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:stretchColumns="4">
+
+                    <TableRow
+                        android:layout_marginHorizontal="15dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/pariman"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:text="परिमाण"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/dar"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:text="दर"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/jamma"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:text="जम्मा"
+                            android:textSize="20sp" />
+
+                        <!--<EditText-->
+                            <!--android:id="@+id/itemQuantity1"-->
+                            <!--android:layout_width="30dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_column="1"-->
+                            <!--android:layout_marginLeft="20dp"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:ems="10"-->
+                            <!--android:hint="नं"-->
+                            <!--android:inputType="number" />-->
+
+                        <!--<Spinner-->
+                            <!--android:id="@+id/unit"-->
+                            <!--android:layout_width="70dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_column="1"-->
+                            <!--android:layout_marginLeft="20dp"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:focusable="true"-->
+                            <!--android:focusableInTouchMode="true"-->
+                            <!--android:spinnerMode="dropdown"-->
+                            <!--android:tooltipText="Unit of your item">-->
+
+                        <!--</Spinner>-->
+
+
+                    </TableRow>
+                </TableLayout>
+
+                <!--end of Table Layout-->
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#666"
+                    android:fitsSystemWindows="true" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginTop="5dp"
+
+                        android:layout_marginEnd="141dp"
+                        android:padding="10dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+
+                            android:id="@+id/itemRate1"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:hint="दर"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <EditText
+
+                        android:id="@+id/itemQuantity1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="60dp"
+
+                        android:hint="नं"
+                        android:inputType="number" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="131dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="219dp"
+                        android:layout_marginLeft="230dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="21dp"
+                        android:focusable="false"
+                        android:padding="10dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/itemTotal1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="जम्मा मूल्य"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Spinner
+                        android:id="@+id/unit"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/itemQuantity1"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:spinnerMode="dropdown"
+                        android:tooltipText="Unit of your item">
+
+                    </Spinner>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#666"
+                    android:fitsSystemWindows="true" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:padding="10dp">
+
+                    <CheckBox
+                        android:id="@+id/homedelivery1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="50dp"
+                        android:text="होम डेलिभरी व्यवस्था छ?"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/upload1"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/signupbtn_design"
+                    android:text="सेभ गर्नुहोस" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
