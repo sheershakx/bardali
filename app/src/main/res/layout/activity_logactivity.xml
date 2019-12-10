@@ -4,22 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
     tools:context=".logactivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_above="@id/btn"
         android:id="@+id/log_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:text="CLickme to see log"
-        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

@@ -23,6 +23,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="70dp"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
@@ -30,6 +31,9 @@
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:background="@color/Purple"
+        app:itemIconTint="@color/colorPrimaryDark"
+        app:itemTextColor="@color/colorPrimaryDark"
         android:id="@+id/buttomnav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +42,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
+
         android:focusable="false"
         app:menu="@menu/menu">
 

@@ -1,5 +1,6 @@
 package com.srg.prototype;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -53,6 +54,8 @@ public class buttomnav extends AppCompatActivity {
     CheckBox delivery;
     Spinner unit;
     FloatingActionButton floatingActionButton;
+
+    ProgressDialog progressDialog;
 
 
     //sellers tab end
@@ -123,6 +126,14 @@ public class buttomnav extends AppCompatActivity {
                         case R.id.nav_feed:
                             selectedFragment = new newsFragment();
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, selectedFragment).commit();
+                            ID.clear();
+                            ITEMUNIT.clear();
+                            ITEMNAME.clear();
+                            QUANTITY.clear();
+                            RATE.clear();
+                            TOTAL.clear();
+                            IMAGEURL.clear();
+                            new getInfo().execute();
                             break;
 
                         case R.id.nav_sell:
@@ -141,14 +152,6 @@ public class buttomnav extends AppCompatActivity {
             };
 
 
-
-    public void seenews(View view) {
-
-        RecyclerView itemlist = findViewById(R.id.recyclerview);
-        itemlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        itemlist.setAdapter(new adapterNewsfeed(ID, ITEMNAME,ITEMUNIT, QUANTITY, RATE, TOTAL,IMAGEURL));
-
-    }
 
     public void chooseimage(View view) {
 
@@ -215,7 +218,7 @@ public void postitem(View view){
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+      progressDialog=ProgressDialog.show(buttomnav.this,"","Loading items..",true);
             db_url = "http://acosaf.000webhostapp.com/test.php";
 
         }
@@ -301,7 +304,11 @@ public void postitem(View view){
 
         @Override
         protected void onPostExecute(String s) {
-            //  Toast.makeText(newsFeed.this,ID.get(2), Toast.LENGTH_SHORT).show();
+            RecyclerView itemlist = findViewById(R.id.recyclerview);
+            itemlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            itemlist.setAdapter(new adapterNewsfeed(ID, ITEMNAME,ITEMUNIT, QUANTITY, RATE, TOTAL,IMAGEURL));
+            progressDialog.dismiss();
+
         }
     }
 

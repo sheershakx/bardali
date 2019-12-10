@@ -4,52 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#fff"
+    android:orientation="vertical"
     tools:context=".splash">
 
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/myproduct"
-        android:background="#fff"
-        android:text="My village..."
         android:layout_marginLeft="90dp"
-        android:textColor="@color/colorPrimary"
+        android:background="#fff"
+        android:fontFamily="@font/rajdhani_medium"
+        android:text="My village..."
+        android:textColor="@color/Purple"
         android:textSize="20sp" />
 
     <TextView
-android:id="@+id/myproduct"
+        android:id="@+id/myproduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/imagebardali"
-        android:background="#fff"
-        android:text="My product..."
         android:layout_marginLeft="180dp"
-        android:textColor="@color/colorPrimary"
+        android:background="#fff"
+        android:fontFamily="@font/rajdhani_medium"
+        android:text="My product..."
+        android:textColor="@color/Purple"
         android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/imagebardali"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/bardalicropped"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:src="@drawable/bardalicropped" />
 
 
     <TextView
         android:id="@+id/bardali"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imagebardali"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/rajdhani_medium"
         android:text="बार्दली..."
-        android:textSize="60sp"
-android:layout_below="@id/imagebardali"
-        android:textColor="@color/colorAccent"/>
-
-
+        android:textColor="@color/Purple"
+        android:textSize="60sp" />
 
 
 </RelativeLayout>

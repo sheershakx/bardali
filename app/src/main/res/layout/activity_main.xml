@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/back1">
-
-
+    android:background="#CC505CAC"
+    tools:context=".MainActivity">
 
 
     <Button
-        android:onClick="checkgps"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="I have turned on GPS Location"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="90dp"
         android:background="@drawable/signupbtn_design"
-        android:backgroundTint="#00e500"/>
+        android:backgroundTint="#00e500"
+        android:fontFamily="@font/rajdhani_medium"
+        android:onClick="checkgps"
+        android:text="I have turned on GPS Location"
+        android:textStyle="bold" />
 </RelativeLayout>

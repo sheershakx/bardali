@@ -1,15 +1,12 @@
 package com.srg.prototype;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +29,8 @@ import java.util.ArrayList;
 
 public class logactivity extends AppCompatActivity {
     String log;
-    Button button;
+
+    ProgressDialog progressDialog;
 
     ArrayList<String> LOG = new ArrayList<String>();
 
@@ -40,19 +38,10 @@ public class logactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logactivity);
-        button=findViewById(R.id.btn);
+
 
         fetchlog fetchlog = new fetchlog();
-        fetchlog.execute("24");
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecyclerView loglist = findViewById(R.id.log_recyclerview);
-                loglist.setLayoutManager(new LinearLayoutManager(logactivity.this));
-                loglist.setAdapter(new adapterLog(LOG));
-            }
-        });
+        fetchlog.execute(login.sessionid);
 
 
     }
@@ -64,7 +53,7 @@ public class logactivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+            progressDialog = ProgressDialog.show(logactivity.this, "", "Loading logs...", true);
             db_url = "http://acosaf.000webhostapp.com/fetchlog.php";
 
         }
@@ -116,9 +105,9 @@ public class logactivity extends AppCompatActivity {
 
                 for (int i = 0; i <= jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        log = jsonObject.getString("logmessage");
+                    log = jsonObject.getString("logmessage");
 
-                        LOG.add(log);
+                    LOG.add(log);
 
 
                 }
@@ -140,7 +129,10 @@ public class logactivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(logactivity.this, "LOG IS READY", Toast.LENGTH_SHORT).show();
+            RecyclerView loglist = findViewById(R.id.log_recyclerview);
+            loglist.setLayoutManager(new LinearLayoutManager(logactivity.this));
+            loglist.setAdapter(new adapterLog(LOG));
+            progressDialog.dismiss();
         }
     }
 

@@ -31,6 +31,8 @@ public class forgotPassword extends AppCompatActivity {
     Button checknum,updatepass;
     String servermobile;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,8 @@ public class forgotPassword extends AppCompatActivity {
         pass.setVisibility(View.GONE);
         confirmpass.setVisibility(View.GONE);
         updatepass.setVisibility(View.GONE);
+
+
 
 
         checknum.setOnClickListener(new View.OnClickListener() {
@@ -259,5 +263,7 @@ public class forgotPassword extends AppCompatActivity {
 
         }
     }
+
+
 
 }

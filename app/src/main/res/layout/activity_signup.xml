@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@drawable/back2"
     android:orientation="vertical"
-
     tools:context=".signup">
 
 
@@ -15,19 +13,19 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0dp"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_margin="20dp"
-            app:cardCornerRadius="20dp">
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
 
 
             <LinearLayout
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +39,8 @@
                         android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="पुरा नाम"
+                        android:fontFamily="@font/rajdhani_medium"
+                        android:hint="Full name"
                         android:textColorHint="@color/colorAccent"
                         android:textSize="20sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -57,7 +56,8 @@
                         android:id="@+id/mobile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="मोबाइल नम्बर"
+                        android:fontFamily="@font/rajdhani_medium"
+                        android:hint="Mobile no"
                         android:inputType="number"
                         android:maxLength="10"
                         android:textColorHint="@color/colorAccent"
@@ -76,7 +76,8 @@
                         android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="पासवर्ड"
+                        android:fontFamily="@font/rajdhani_medium"
+                        android:hint="Password"
                         android:inputType="textPassword"
                         android:textColorHint="@color/colorAccent"
                         android:textSize="20sp" />
@@ -94,7 +95,8 @@
                         android:id="@+id/confirmPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="पुन: पासवर्ड"
+                        android:fontFamily="@font/rajdhani_medium"
+                        android:hint="Confirm password"
                         android:inputType="textPassword"
                         android:textColorHint="@color/colorAccent"
                         android:textSize="20sp" />
@@ -102,12 +104,15 @@
 
                 <Button
                     android:id="@+id/register"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="30sp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textStyle="bold"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/signupbtn_design"
-                    android:text="अकाउन्ट बनाउनुहोस्"
+                    android:background="@drawable/loginbtn_design"
+                    android:fontFamily="@font/rajdhani_medium"
+                    android:text="Create Account"
                     android:textColor="#fff" />
 
                 <TextView
@@ -115,9 +120,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginRight="20dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:onClick="loginRedirect"
-                    android:text="Login मा जानुहोस"
-                    android:textColor="#00574B"
+                    android:text="Login here.."
+                    android:textColor="@color/Purple"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 

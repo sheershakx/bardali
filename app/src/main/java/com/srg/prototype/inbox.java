@@ -1,8 +1,8 @@
 package com.srg.prototype;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,10 +30,12 @@ import java.util.ArrayList;
 public class inbox extends AppCompatActivity {
     ArrayList<String> username = new ArrayList<String>();
     ArrayList<String> messaged = new ArrayList<String>();
-    String sendid,recvid,message,sendername,receivername;
+    String sendid, recvid, message, sendername, receivername;
     ArrayList<String> sendID = new ArrayList<String>();
     ArrayList<String> recvID = new ArrayList<String>();
     ArrayList<String> RECVNAME = new ArrayList<String>();
+
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +47,6 @@ public class inbox extends AppCompatActivity {
 
     }
 
-    public void seeinbox(View view) {
-        RecyclerView inboxview = findViewById(R.id.recyclerinbox);
-        inboxview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        inboxview.setAdapter(new adapterInbox(sendID,recvID,username, messaged));
-    }
-
 
     public class getInfo extends AsyncTask<String, String, String> {
         String db_url;
@@ -58,7 +54,7 @@ public class inbox extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+            progressDialog = ProgressDialog.show(inbox.this, "", "Loading message..", true);
             db_url = "http://acosaf.000webhostapp.com/chatinbox.php";
 
         }
@@ -81,16 +77,6 @@ public class inbox extends AppCompatActivity {
 
                 bufferedWriter.write(data_string);
 
-//                } else {
-//                    String data_string = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderID, "UTF-8") + "&" +
-//                            URLEncoder.encode("receiverID", "UTF-8") + "=" + URLEncoder.encode(receiverID, "UTF-8")+"&"+
-//                            URLEncoder.encode("messsage", "UTF-8") + "=" + URLEncoder.encode(messageContent, "UTF-8");
-//
-//                    bufferedWriter.write(data_string);
-//
-//
-//                }
-                //writing to api finished
 
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -129,8 +115,8 @@ public class inbox extends AppCompatActivity {
                         message = jsonObject.getString("message");
                         sendid = jsonObject.getString("senderId");
                         recvid = jsonObject.getString("receiverId");
-                        sendername=jsonObject.getString("sendername");
-                       // receivername=jsonObject.getString("receivername");
+                        sendername = jsonObject.getString("sendername");
+                        // receivername=jsonObject.getString("receivername");
 
 
                         if (!sendername.equals(login.sessionname)) {
@@ -139,9 +125,9 @@ public class inbox extends AppCompatActivity {
                             sendID.add(sendid);
                             recvID.add(recvid);
                             username.add(sendername);
-                          //  RECVNAME.add(receivername);
+                            //  RECVNAME.add(receivername);
 
-                                                  }
+                        }
 
                     }
                 }
@@ -157,13 +143,16 @@ public class inbox extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-//
+
             return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
-            //  Toast.makeText(newsFeed.this,ID.get(2), Toast.LENGTH_SHORT).show();
+            RecyclerView inboxview = findViewById(R.id.recyclerinbox);
+            inboxview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            inboxview.setAdapter(new adapterInbox(sendID, recvID, username, messaged));
+            progressDialog.dismiss();
         }
     }
 }

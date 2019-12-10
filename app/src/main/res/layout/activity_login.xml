@@ -6,13 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    android:background="@drawable/back2"
     tools:context=".login">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/rajdhani_medium"
+            android:text="Bardali"
+            android:textColor="#505CAC"
+            android:textSize="80sp"
+            android:textStyle="bold" />
+
 
     </RelativeLayout>
 
@@ -28,8 +39,8 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0dp"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,13 +48,12 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_marginTop="10dp"
-                    android:padding="0dp"
-                    >
+                    android:padding="0dp">
 
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +61,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
-                        android:hint="मोबाइल नम्बर"
+                        android:fontFamily="@font/rajdhani_medium"
+                        android:hint="Mobile no"
                         android:inputType="number"
                         android:maxLength="10"
                         android:textColorHint="#fff"
@@ -60,12 +71,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:padding="0dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_marginTop="20dp"
+                    android:padding="0dp"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -73,51 +84,53 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
-                        android:hint="पासवर्ड"
+                        android:fontFamily="@font/rajdhani_medium"
+                        android:hint="Password"
                         android:inputType="textPassword"
-                        android:textColorHint="@color/colorAccent"
+                        android:textColorHint="#FFFFFF"
                         android:textSize="20sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/login"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/loginbtn_design"
-                    android:text="प्रवेश गर्नुहोस"
-                    android:textColor="#fff" />
+                    android:fontFamily="@font/rajdhani_medium"
+                    android:text="Login"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
 
-                <RelativeLayout
+                <Button
+                    android:id="@+id/signup"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:onClick="resetpassword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:text="पासवर्ड बिर्सिए"
-                        android:textColor="#00574B"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="5dp"
-                        android:onClick="signupRedirect"
-                        android:text="नया अकाउन्ट बनाउनुहोस्"
-                        android:textColor="#00574B"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/loginbtn_design"
+                    android:fontFamily="@font/rajdhani_medium"
+                    android:onClick="signupredirect"
+                    android:text="Signup"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
 
 
-                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:onClick="resetpassword"
+                    android:text="Forgot Password"
+                    android:textColor="@color/Purple"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

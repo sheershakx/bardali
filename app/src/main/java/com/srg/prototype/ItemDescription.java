@@ -3,6 +3,7 @@ package com.srg.prototype;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -59,6 +60,18 @@ public class ItemDescription extends AppCompatActivity {
              public void onClick(View v) {
                 choosechatDialog choosechatDialog=new choosechatDialog();
                 choosechatDialog.show(getSupportFragmentManager(),"choose chat");
+             }
+         });
+
+         imageView.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Toast imagetoast=new Toast(ItemDescription.this);
+                 ImageView toastimageview=new ImageView(ItemDescription.this);
+                 Picasso.get().load(simageurl).into(toastimageview);
+                 imagetoast.setView(toastimageview);
+                 imagetoast.setGravity(Gravity.CENTER, 0, 0);
+                 imagetoast.show();
              }
          });
 

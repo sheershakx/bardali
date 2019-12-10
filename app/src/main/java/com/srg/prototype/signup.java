@@ -1,7 +1,5 @@
 package com.srg.prototype;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,8 +7,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -21,10 +20,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class signup extends AppCompatActivity {
     EditText name, mobile, pass, repass;
@@ -75,14 +70,14 @@ public class signup extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),login.class));
     }
 
-    public class Doregister extends AsyncTask<String, String, String> {
+    public class Doregister extends AsyncTask<String, String, String>  {
         String db_url;
 
 
         @Override
         protected void onPreExecute() {
             Toast.makeText(signup.this, "Loading........", Toast.LENGTH_SHORT).show();
-            db_url="http://acosaf.000webhostapp.com/register.php";
+            db_url="http://testprasis.000webhostapp.com/register.php";
 
 
 

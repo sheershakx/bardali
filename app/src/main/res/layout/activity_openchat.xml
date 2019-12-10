@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".chat">
 
@@ -11,14 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent">
+        android:background="@color/Purple">
 
         <EditText
             android:id="@+id/typemessageOpen"
             android:layout_width="300dp"
             android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:background="#fff"
+            android:layout_marginEnd="111dp"
+            android:background="@drawable/loginbtn_design"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:hint="Type your message here..." />
 
         <Button
@@ -27,7 +30,10 @@
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="Send" />
+            android:background="@drawable/loginbtn_design"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Send"
+            android:textColor="@color/colorPrimaryDark" />
 
     </RelativeLayout>
 

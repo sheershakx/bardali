@@ -1,5 +1,6 @@
 package com.srg.prototype;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -23,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -50,6 +50,7 @@ public class seller_tab extends AppCompatActivity {
     private StorageReference storageReference;
     private Uri photouri;
     String downloadurl;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,12 +139,13 @@ public class seller_tab extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        progressDialog=ProgressDialog.show(seller_tab.this,"","Uploading Photo...",true);
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 0 && resultCode == RESULT_OK && data != null) {
             photouri = data.getData();
             imageView.setImageURI(photouri);
-            Snackbar.make(findViewById(R.id.rootlayout), "Photo Upload Success भन्ने मेसेज आएपछि मात्र 'सेभ गर्नुहोस' बटन थिच्नु होला", Snackbar.LENGTH_LONG).show();
+//            Snackbar.make(findViewById(R.id.rootlayout), "Photo Upload Success भन्ने मेसेज आएपछि मात्र 'सेभ गर्नुहोस' बटन थिच्नु होला", Snackbar.LENGTH_LONG).show();
             uploadtofirebase();
 
 
@@ -162,6 +164,7 @@ public class seller_tab extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 downloadurl = uri.toString();
+                                progressDialog.dismiss();
                                 Toast toast = Toast.makeText(seller_tab.this, "Photo Upload Success", Toast.LENGTH_LONG);
                                 toast.setGravity(Gravity.CENTER, 0, 0);
                                 toast.show();

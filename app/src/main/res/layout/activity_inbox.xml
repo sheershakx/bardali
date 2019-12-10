@@ -7,17 +7,8 @@
     tools:context=".inbox">
 
 
-    <Button
-        android:id="@+id/btnxx"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="click to see inbox"
-        android:onClick="seeinbox"
-        android:layout_alignParentBottom="true" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerinbox"
-        android:layout_above="@id/btnxx"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

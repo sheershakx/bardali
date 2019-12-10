@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="250dp"
+    android:background="#99505CAC"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -20,9 +21,10 @@
                 android:id="@+id/itemName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/rajdhani_medium"
                 android:padding="5dp"
                 android:text="भोजपुरे अकबरे खोर्सानी"
-                android:textColor="#00574B"
+                android:textColor="#0C5A0D"
                 android:textSize="15sp" />
 
             <TextView
@@ -31,9 +33,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="10dp"
+                android:fontFamily="@font/rajdhani_medium"
                 android:padding="5dp"
                 android:text="१ केजी"
-                android:textColor="#00574B"
+                android:textColor="#0C5A0D"
                 android:textSize="15sp" />
 
             <View
@@ -50,22 +53,23 @@
                 android:layout_below="@id/divider1"
                 android:layout_centerInParent="true"
                 android:layout_margin="5dp"
-                android:src="@drawable/sampleimage"/>
+                android:src="@drawable/sampleimage" />
 
             <View
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
                 android:layout_below="@+id/itemImage"
-                android:background="?android:attr/listDivider"/>
+                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/divider2"
+                android:fontFamily="@font/rajdhani_medium"
                 android:padding="5dp"
-                android:text="दर:"
-                android:textColor="@color/colorAccent"
+                android:text="Rate:"
+                android:textColor="#0C5A0D"
                 android:textSize="15sp" />
 
             <TextView
@@ -73,10 +77,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/divider2"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="49dp"
                 android:layout_marginLeft="25dp"
+                android:layout_marginTop="-1dp"
+                android:layout_marginBottom="1dp"
+                android:fontFamily="@font/rajdhani_medium"
                 android:padding="5dp"
                 android:text="३०० प्रति केजी"
-                android:textColor="@color/colorAccent"
+                android:textColor="#0C5A0D"
                 android:textSize="15sp" />
 
             <TextView
@@ -86,9 +96,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="265dp"
                 android:layout_marginEnd="74dp"
+                android:fontFamily="@font/rajdhani_medium"
                 android:padding="5dp"
-                android:text="जम्मा:"
-                android:textColor="@color/colorAccent"
+                android:text="Total:"
+                android:textColor="#0C5A0D"
                 android:textSize="15sp" />
 
             <TextView
@@ -98,9 +109,10 @@
                 android:layout_below="@id/divider2"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="10dp"
-                android:textColor="@color/colorAccent"
+                android:fontFamily="@font/rajdhani_medium"
                 android:padding="5dp"
                 android:text="रु ६००"
+                android:textColor="#0C5A0D"
                 android:textSize="15sp" />
 
 

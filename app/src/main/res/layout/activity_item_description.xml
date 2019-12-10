@@ -11,26 +11,29 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.6"
-        android:background="@color/colorPrimaryDark">
+        android:layout_weight="0.6">
 
         <Button
             android:id="@+id/openchat"
             android:layout_width="150dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="230dp"
             android:layout_marginEnd="31dp"
             android:layout_marginBottom="3dp"
-            android:background="@drawable/signupbtn_design"
-            android:text="बार्गेन गर्नुहोस" />
+            android:background="@drawable/loginbtn_design"
+            android:fontFamily="@font/rajdhani_medium"
+            android:text="Bargain"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
 
         <ImageView
-            android:onClick="gobacktomain"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:onClick="gobacktomain"
             android:src="@drawable/backarrow" />
 
     </RelativeLayout>
@@ -39,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9.4"
-        android:background="#D3D3D3"
+
         android:orientation="vertical">
 
 
@@ -48,10 +51,10 @@
             android:layout_height="match_parent">
 
             <RelativeLayout
-                android:background="#fff"
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="#fff">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,7 +63,8 @@
                     android:layout_marginLeft="150dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="97dp"
-                    android:text="होम डेलिभरीको व्यवस्था :"
+                    android:fontFamily="@font/rajdhani_medium"
+                    android:text="Home delivery available :"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -71,7 +75,8 @@
                     android:layout_marginLeft="350dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="38dp"
-                    android:text="छैन"
+                    android:fontFamily="@font/rajdhani_medium"
+                    android:text="Yes"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -79,10 +84,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:padding="10dp"
-                    android:text="सामानको नाम :"
+                    android:text="Item name :"
+                    android:textColor="@color/Purple"
                     android:textSize="22sp"
-                    android:textColor="@color/colorAccent"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textviewitem"
@@ -109,21 +116,23 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/divider2"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:padding="10dp"
-                    android:text="परिमाण :"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp" />
+                    android:text="Quantity :"
+                    android:textColor="@color/Purple"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textviewquantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/divider2"
-                   android:layout_marginLeft="220dp"
+                    android:layout_marginLeft="220dp"
                     android:layout_marginTop="10dp"
-
+                    android:fontFamily="@font/rajdhani_medium"
                     android:hint="1"
                     android:padding="10dp"
                     android:textSize="20sp" />
@@ -142,21 +151,23 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:padding="10dp"
-                    android:text="दर :"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp" />
+                    android:text="Rate :"
+                    android:textColor="@color/Purple"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textviewrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/divider3"
-
-                   android:layout_marginLeft="220dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:hint="Rs 300"
                     android:padding="10dp"
-                    android:layout_marginTop="10dp"
                     android:textSize="20sp" />
 
                 <View
@@ -173,18 +184,21 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:padding="10dp"
-                    android:text="जम्मा मूल्य :"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp" />
+                    android:text="Total :"
+                    android:textColor="@color/Purple"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textviewtotal"
                     android:layout_width="wrap_content"
                     android:layout_height="49dp"
                     android:layout_below="@id/divider4"
-                 android:layout_marginTop="10dp"
                     android:layout_marginLeft="220dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:hint="Rs 1250"
                     android:padding="10dp"
                     android:textSize="20sp" />
@@ -206,8 +220,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="0dp"
-                    android:fitsSystemWindows="true"
-                    android:src="@drawable/sampleimage" />
+                    android:fitsSystemWindows="true" />
 
                 <View
                     android:id="@+id/divider6"
@@ -222,10 +235,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/divider6"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:padding="10dp"
-                    android:text="छोटो जानकारी :"
+                    android:text="Short description :"
+                    android:textColor="@color/Purple"
                     android:textSize="22sp"
-                    android:textColor="@color/colorAccent"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textviewdescresult"
@@ -235,6 +250,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:hint="एकदमै ओर्गानिक आप हो | घरमा खाने कोइ भएनन् तेही कारणले बेच्न आटेको"
                     android:padding="10dp"
                     android:textSize="20sp" />
@@ -254,22 +270,25 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="0dp"
                     android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:padding="10dp"
-                    android:text="बिक्रेताको नाम :"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp" />
+                    android:text="Seller's name :"
+                    android:textColor="@color/Purple"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textviewsellersname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/divider7"
+                    android:layout_marginLeft="140dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/rajdhani_medium"
                     android:hint="शीर्षक राज गौतम"
                     android:padding="10dp"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="140dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
