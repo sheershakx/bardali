@@ -88,7 +88,7 @@ public class forgotPassword extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(forgotPassword.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/checknum.php";
 
         }
@@ -180,7 +180,7 @@ public class forgotPassword extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(forgotPassword.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/updatepass.php";
 
         }

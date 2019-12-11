@@ -95,7 +95,7 @@ public class sellFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(getContext(), "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/sellers.php";
 
 

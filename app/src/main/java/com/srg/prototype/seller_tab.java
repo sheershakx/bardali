@@ -194,7 +194,7 @@ public class seller_tab extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(seller_tab.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url = "http://acosaf.000webhostapp.com/sellers.php";
 
 
@@ -272,7 +272,7 @@ public class seller_tab extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(seller_tab.this, "Loading...", Toast.LENGTH_SHORT).show();
+
             db_url = "http://acosaf.000webhostapp.com/sendlog.php";
 
 
@@ -316,7 +316,7 @@ public class seller_tab extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(seller_tab.this, s, Toast.LENGTH_LONG).show();
+
 
 
         }

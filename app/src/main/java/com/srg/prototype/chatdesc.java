@@ -3,7 +3,6 @@ package com.srg.prototype;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +42,8 @@ public class chatdesc extends AppCompatActivity {
     ArrayList<String> recvID = new ArrayList<String>();
     ArrayList<String> MESSAGE = new ArrayList<String>();
 
+    RecyclerView recyclerView;
+
 
 
     @Override
@@ -55,8 +56,8 @@ public class chatdesc extends AppCompatActivity {
 
         getInfo getInfo = new getInfo();
         getInfo.execute(login.sessionid,ItemDescription.suid);
-        //calling handler function
-        handlerfucntion();
+
+        recyclerView=findViewById(R.id.recyclerviewChat);
 
 
 
@@ -72,9 +73,7 @@ public class chatdesc extends AppCompatActivity {
                 } else {
                     sendmessage sendmessage=new sendmessage();
                     sendmessage.execute(login.sessionid,ItemDescription.suid,messageContent);
-                    getInfo getInfo = new getInfo();
-                    getInfo.execute(login.sessionid, ItemDescription.suid);
-                    typemessage.setText("");
+
 
 
                 }
@@ -89,21 +88,7 @@ public class chatdesc extends AppCompatActivity {
 
     }
 
-    private void handlerfucntion(){
-        final Handler handler = new Handler();
-        final int delay = 3000; //milliseconds
 
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                //do something
-                RecyclerView chatlist = findViewById(R.id.recyclerviewChat);
-                chatlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                chatlist.setAdapter(new adapterChatdesc(sendID,recvID,MESSAGE));
-                handler.postDelayed(this, delay);
-            }
-        }, delay);
-
-    }
 
     public class getInfo extends AsyncTask<String, String, String> {
         String db_url;
@@ -111,7 +96,6 @@ public class chatdesc extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
             db_url = "http://acosaf.000webhostapp.com/chat.php";
 
         }
@@ -136,16 +120,6 @@ public class chatdesc extends AppCompatActivity {
 
                     bufferedWriter.write(data_string);
 
-//                } else {
-//                    String data_string = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderID, "UTF-8") + "&" +
-//                            URLEncoder.encode("receiverID", "UTF-8") + "=" + URLEncoder.encode(receiverID, "UTF-8")+"&"+
-//                            URLEncoder.encode("messsage", "UTF-8") + "=" + URLEncoder.encode(messageContent, "UTF-8");
-//
-//                    bufferedWriter.write(data_string);
-//
-//
-//                }
-                //writing to api finished
 
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -209,7 +183,9 @@ public class chatdesc extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            //  Toast.makeText(newsFeed.this,ID.get(2), Toast.LENGTH_SHORT).show();
+            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerView.setAdapter(new adapterChatdesc(sendID,recvID,MESSAGE));
+            recyclerView.smoothScrollToPosition(MESSAGE.size());
         }
     }
     public class sendmessage extends AsyncTask<String, String, String> {
@@ -218,7 +194,6 @@ public class chatdesc extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(chatdesc.this, "Loading........", Toast.LENGTH_SHORT).show();
             db_url="http://acosaf.000webhostapp.com/sendmessage.php";
 
         }
@@ -266,7 +241,13 @@ public class chatdesc extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
+            MESSAGE.clear();
+            sendID.clear();
+            recvID.clear();
             Toast.makeText(chatdesc.this, s, Toast.LENGTH_LONG).show();
+            getInfo getInfo = new getInfo();
+            getInfo.execute(login.sessionid, ItemDescription.suid);
+            typemessage.setText("");
             try {
                 if (flag.equals(0)) {
                     activitylog activitylog=new activitylog();
@@ -292,7 +273,7 @@ public class chatdesc extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(chatdesc.this, "Loading...", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/sendlog.php";
 
 
@@ -338,7 +319,6 @@ public class chatdesc extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(chatdesc.this, s, Toast.LENGTH_LONG).show();
 
 
 

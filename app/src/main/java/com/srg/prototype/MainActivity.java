@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         @Override
         protected void onPreExecute() {
-          //  Toast.makeText(MainActivity.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/locationstore.php";
 
 
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url = "http://testprasis.000webhostapp.com/getshopname.php";
 
         }

@@ -98,7 +98,7 @@ public class ItemDescription extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(ItemDescription.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/getInfo.php";
 
         }

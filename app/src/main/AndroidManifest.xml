@@ -12,9 +12,9 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@drawable/iconbardali"
+        android:icon="@drawable/bardali_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/iconbardali"
+        android:roundIcon="@drawable/bardali_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">

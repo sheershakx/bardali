@@ -76,7 +76,7 @@ public class signup extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(signup.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://testprasis.000webhostapp.com/register.php";
 
 

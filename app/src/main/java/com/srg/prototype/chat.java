@@ -3,7 +3,6 @@ package com.srg.prototype;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,16 +34,17 @@ import java.util.ArrayList;
 public class chat extends AppCompatActivity {
     Button sendmsg;
     EditText typemessage;
-    Integer flag=0;
-public static String senderID;
-public static String sendername;
-public static String recvname;
+    Integer flag = 0;
+    public static String senderID;
+    public static String sendername;
+    public static String recvname;
 
-    String sendid,recvid,message;
+    String sendid, recvid, message;
     ArrayList<String> sendID = new ArrayList<String>();
     ArrayList<String> recvID = new ArrayList<String>();
     ArrayList<String> MESSAGE = new ArrayList<String>();
 
+    RecyclerView recyclerViewChat;
 
 
     @Override
@@ -55,14 +55,11 @@ public static String recvname;
 
         sendmsg = findViewById(R.id.sendmessage);
         typemessage = findViewById(R.id.typemessage);
-
+        recyclerViewChat = findViewById(R.id.recyclerviewChat);
         getInfo getInfo = new getInfo();
-        getInfo.execute(login.sessionid,senderID);
+        getInfo.execute(login.sessionid, senderID);
+
         //calling handler function
-        handlerfucntion();
-
-
-
 
 
         sendmsg.setOnClickListener(new View.OnClickListener() {
@@ -73,49 +70,26 @@ public static String recvname;
                 if (messageContent.isEmpty()) {
                     Toast.makeText(chat.this, "You can't send a blank message", Toast.LENGTH_SHORT).show();
                 } else {
-                    sendmessage sendmessage=new sendmessage();
-                    sendmessage.execute(login.sessionid,senderID,login.sessionname,messageContent);
-                    getInfo getInfo = new getInfo();
-                    getInfo.execute(login.sessionid, senderID);
-                    typemessage.setText("");
+                    sendmessage sendmessage = new sendmessage();
+                    sendmessage.execute(login.sessionid, senderID, login.sessionname, messageContent);
 
                 }
-
-                RecyclerView chatlist = findViewById(R.id.recyclerviewChat);
-                chatlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                chatlist.setAdapter(new adapterChat(sendID,recvID,MESSAGE));
-
 
             }
         });
 
     }
 
-    private void getIncomingIntent(){
-        if (getIntent().hasExtra("senderID")){
-             senderID=getIntent().getStringExtra("senderID");
-             sendername=getIntent().getStringExtra("sendername");
-             recvname=getIntent().getStringExtra("recvname");
+    private void getIncomingIntent() {
+        if (getIntent().hasExtra("senderID")) {
+            senderID = getIntent().getStringExtra("senderID");
+            sendername = getIntent().getStringExtra("sendername");
+            recvname = getIntent().getStringExtra("recvname");
 
         }
 
     }
 
-    private void handlerfucntion(){
-        final Handler handler = new Handler();
-        final int delay = 3000; //milliseconds
-
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                //do something
-                RecyclerView chatlist = findViewById(R.id.recyclerviewChat);
-                chatlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                chatlist.setAdapter(new adapterChat(sendID,recvID,MESSAGE));
-                handler.postDelayed(this, delay);
-            }
-        }, delay);
-
-    }
 
     public class getInfo extends AsyncTask<String, String, String> {
         String db_url;
@@ -123,7 +97,7 @@ public static String recvname;
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url = "http://acosaf.000webhostapp.com/chat.php";
 
         }
@@ -143,21 +117,10 @@ public static String recvname;
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
-                    String data_string = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderID, "UTF-8") + "&" +
-                            URLEncoder.encode("receiverID", "UTF-8") + "=" + URLEncoder.encode(receiverID, "UTF-8");
+                String data_string = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderID, "UTF-8") + "&" +
+                        URLEncoder.encode("receiverID", "UTF-8") + "=" + URLEncoder.encode(receiverID, "UTF-8");
 
-                    bufferedWriter.write(data_string);
-
-//                } else {
-//                    String data_string = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderID, "UTF-8") + "&" +
-//                            URLEncoder.encode("receiverID", "UTF-8") + "=" + URLEncoder.encode(receiverID, "UTF-8")+"&"+
-//                            URLEncoder.encode("messsage", "UTF-8") + "=" + URLEncoder.encode(messageContent, "UTF-8");
-//
-//                    bufferedWriter.write(data_string);
-//
-//
-//                }
-                //writing to api finished
+                bufferedWriter.write(data_string);
 
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -221,47 +184,50 @@ public static String recvname;
 
         @Override
         protected void onPostExecute(String s) {
-            //  Toast.makeText(newsFeed.this,ID.get(2), Toast.LENGTH_SHORT).show();
+            recyclerViewChat.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerViewChat.setAdapter(new adapterChat(sendID, recvID, MESSAGE));
+            recyclerViewChat.smoothScrollToPosition(MESSAGE.size());
         }
     }
+
     public class sendmessage extends AsyncTask<String, String, String> {
         String db_url;
 
 
         @Override
         protected void onPreExecute() {
-           // Toast.makeText(chat.this, "Loading........", Toast.LENGTH_SHORT).show();
-            db_url="http://acosaf.000webhostapp.com/sendmessage.php";
+
+            db_url = "http://acosaf.000webhostapp.com/sendmessage.php";
 
         }
 
         @Override
         protected String doInBackground(String... args) {
-            String senderId,receiverId,sendername,messagecontent;
-            senderId=args[0];
-            receiverId=args[1];
-            sendername=args[2];
-            messagecontent=args[3];
+            String senderId, receiverId, sendername, messagecontent;
+            senderId = args[0];
+            receiverId = args[1];
+            sendername = args[2];
+            messagecontent = args[3];
 
             try {
-                URL url=new URL(db_url);
-                HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
+                URL url = new URL(db_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
-                OutputStream outputStream=httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String data_string= URLEncoder.encode("senderID","UTF-8")+"="+URLEncoder.encode(senderId,"UTF-8")+"&"+
-                        URLEncoder.encode("receiverID","UTF-8")+"="+URLEncoder.encode(receiverId,"UTF-8")+"&"+
-                        URLEncoder.encode("sendername","UTF-8")+"="+URLEncoder.encode(sendername,"UTF-8")+"&"+
-                        URLEncoder.encode("receivername","UTF-8")+"="+URLEncoder.encode(recvname,"UTF-8")+"&"+
-                        URLEncoder.encode("datetime","UTF-8")+"="+URLEncoder.encode("2019-10-24 00:00:00.000000","UTF-8")+"&"+
-                        URLEncoder.encode("message","UTF-8")+"="+URLEncoder.encode(messagecontent,"UTF-8");
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data_string = URLEncoder.encode("senderID", "UTF-8") + "=" + URLEncoder.encode(senderId, "UTF-8") + "&" +
+                        URLEncoder.encode("receiverID", "UTF-8") + "=" + URLEncoder.encode(receiverId, "UTF-8") + "&" +
+                        URLEncoder.encode("sendername", "UTF-8") + "=" + URLEncoder.encode(sendername, "UTF-8") + "&" +
+                        URLEncoder.encode("receivername", "UTF-8") + "=" + URLEncoder.encode(recvname, "UTF-8") + "&" +
+                        URLEncoder.encode("datetime", "UTF-8") + "=" + URLEncoder.encode("2019-10-24 00:00:00.000000", "UTF-8") + "&" +
+                        URLEncoder.encode("message", "UTF-8") + "=" + URLEncoder.encode(messagecontent, "UTF-8");
                 bufferedWriter.write(data_string);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 outputStream.close();
 
-                InputStream inputStream=httpURLConnection.getInputStream();
+                InputStream inputStream = httpURLConnection.getInputStream();
                 inputStream.close();
                 httpURLConnection.disconnect();
                 return "Message sent succesfully";
@@ -273,7 +239,7 @@ public static String recvname;
             }
 
 
-            return  null;
+            return null;
         }
 
 
@@ -282,22 +248,20 @@ public static String recvname;
             Toast.makeText(chat.this, s, Toast.LENGTH_LONG).show();
             try {
                 if (flag.equals(0)) {
-                    activitylog activitylog=new activitylog();
+                    activitylog activitylog = new activitylog();
                     activitylog.execute("You bargained with the user");
 
                     flag = 1;
                 }
-            }catch (RuntimeException e){
+            } catch (RuntimeException e) {
                 Toast.makeText(chat.this, "Runtime exception occured", Toast.LENGTH_SHORT).show();
-                
+
             }
-
-
-
 
 
         }
     }
+
     //API calling
     public class activitylog extends AsyncTask<String, String, String> {
         String db_url;
@@ -305,35 +269,33 @@ public static String recvname;
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(chat.this, "Loading...", Toast.LENGTH_SHORT).show();
-            db_url="http://acosaf.000webhostapp.com/sendlog.php";
 
-
+            db_url = "http://acosaf.000webhostapp.com/sendlog.php";
 
 
         }
 
         @Override
         protected String doInBackground(String... args) {
-            String logmessage=args[0];
+            String logmessage = args[0];
 
 
             try {
-                URL url=new URL(db_url);
-                HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
+                URL url = new URL(db_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
-                OutputStream outputStream=httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String data_string= URLEncoder.encode("userid","UTF-8")+"="+URLEncoder.encode(login.sessionid,"UTF-8")+"&"+
-                        URLEncoder.encode("logstring","UTF-8")+"="+URLEncoder.encode(logmessage,"UTF-8");
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data_string = URLEncoder.encode("userid", "UTF-8") + "=" + URLEncoder.encode(login.sessionid, "UTF-8") + "&" +
+                        URLEncoder.encode("logstring", "UTF-8") + "=" + URLEncoder.encode(logmessage, "UTF-8");
 
                 bufferedWriter.write(data_string);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 outputStream.close();
 
-                InputStream inputStream=httpURLConnection.getInputStream();
+                InputStream inputStream = httpURLConnection.getInputStream();
                 inputStream.close();
                 httpURLConnection.disconnect();
                 return "Log saved.";
@@ -345,13 +307,18 @@ public static String recvname;
             }
 
 
-            return  null;
+            return null;
         }
 
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(chat.this, s, Toast.LENGTH_LONG).show();
+            MESSAGE.clear();
+            sendID.clear();
+            recvID.clear();
+            getInfo getInfo = new getInfo();
+            getInfo.execute(login.sessionid, senderID);
+            typemessage.setText("");
 
 
 

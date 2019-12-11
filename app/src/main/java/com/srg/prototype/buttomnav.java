@@ -320,7 +320,7 @@ public void postitem(View view){
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(buttomnav.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/sellers.php";
 
 
@@ -399,7 +399,7 @@ public void postitem(View view){
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(buttomnav.this, "Loading...", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/sendlog.php";
 
 
@@ -445,7 +445,6 @@ public void postitem(View view){
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(buttomnav.this, s, Toast.LENGTH_LONG).show();
 
 
 

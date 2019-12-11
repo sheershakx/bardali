@@ -216,7 +216,7 @@ public class newsFeed extends AppCompatActivity implements LocationListener {
 
         @Override
         protected void onPreExecute() {
-         //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url = "http://acosaf.000webhostapp.com/test.php";
 
         }

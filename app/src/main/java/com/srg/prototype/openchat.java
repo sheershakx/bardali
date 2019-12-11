@@ -3,7 +3,6 @@ package com.srg.prototype;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +35,7 @@ public class openchat extends AppCompatActivity {
     Button sendmsg;
     EditText typemessage;
     Integer flag = 0;
-
+RecyclerView recyclerViewOpenChat;
 
     String userid, message;
 
@@ -48,15 +47,13 @@ public class openchat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_openchat);
+        recyclerViewOpenChat=findViewById(R.id.recyclerviewChatOpen);
 
         sendmsg = findViewById(R.id.sendmessageOpen);
         typemessage = findViewById(R.id.typemessageOpen);
 
         getInfo getInfo = new getInfo();
         getInfo.execute(ItemDescription.sid);
-        //calling handler function
-        handlerfucntion();
-
 
         sendmsg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,15 +65,8 @@ public class openchat extends AppCompatActivity {
                 } else {
                     sendmessage sendmessage = new sendmessage();
                     sendmessage.execute(login.sessionid, ItemDescription.sid, messageContent);
-                    getInfo getInfo = new getInfo();
-                    getInfo.execute(ItemDescription.sid);
-                    typemessage.setText("");
-
                 }
 
-                RecyclerView chatlist = findViewById(R.id.recyclerviewChatOpen);
-                chatlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                chatlist.setAdapter(new adapterOpenChat(USERID, MESSAGE));
 
 
             }
@@ -84,21 +74,6 @@ public class openchat extends AppCompatActivity {
 
     }
 
-    private void handlerfucntion() {
-        final Handler handler = new Handler();
-        final int delay = 3000; //milliseconds
-
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                //do something
-                RecyclerView chatlist = findViewById(R.id.recyclerviewChatOpen);
-                chatlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                chatlist.setAdapter(new adapterOpenChat(USERID, MESSAGE));
-                handler.postDelayed(this, delay);
-            }
-        }, delay);
-
-    }
 
     public class getInfo extends AsyncTask<String, String, String> {
         String db_url;
@@ -106,7 +81,7 @@ public class openchat extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            //   Toast.makeText(newsFeed.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url = "http://acosaf.000webhostapp.com/getopenchat.php";
 
         }
@@ -195,7 +170,9 @@ public class openchat extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            //  Toast.makeText(newsFeed.this,ID.get(2), Toast.LENGTH_SHORT).show();
+            recyclerViewOpenChat.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerViewOpenChat.setAdapter(new adapterOpenChat(USERID, MESSAGE));
+            recyclerViewOpenChat.smoothScrollToPosition(MESSAGE.size());
         }
     }
 
@@ -205,7 +182,7 @@ public class openchat extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(openchat.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url = "http://acosaf.000webhostapp.com/openchat.php";
 
         }
@@ -250,7 +227,13 @@ public class openchat extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
+            typemessage.setText("");
             Toast.makeText(openchat.this, s, Toast.LENGTH_LONG).show();
+            MESSAGE.clear();
+            USERID.clear();
+            getInfo getInfo = new getInfo();
+            getInfo.execute(ItemDescription.sid);
+
             try {
                 if (flag.equals(0)) {
                     activitylog activitylog = new activitylog();
@@ -274,7 +257,6 @@ public class openchat extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(openchat.this, "Loading...", Toast.LENGTH_SHORT).show();
             db_url = "http://acosaf.000webhostapp.com/sendlog.php";
 
 
@@ -318,7 +300,7 @@ public class openchat extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(openchat.this, s, Toast.LENGTH_LONG).show();
+
 
 
         }

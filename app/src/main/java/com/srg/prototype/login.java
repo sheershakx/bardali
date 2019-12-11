@@ -75,7 +75,7 @@ public class login extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(login.this, "Loading........", Toast.LENGTH_SHORT).show();
+
             db_url="http://acosaf.000webhostapp.com/login.php";
 
         }
