@@ -16,7 +16,7 @@
         android:layout_marginLeft="90dp"
         android:background="#fff"
         android:fontFamily="@font/rajdhani_medium"
-        android:text="My village..."
+        android:text="Have Extra?..."
         android:textColor="@color/Purple"
         android:textSize="22sp" />
 
@@ -29,7 +29,7 @@
         android:background="#fff"
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/rajdhani_medium"
-        android:text="My product..."
+        android:text="Sell in Bardali..."
         android:textColor="@color/Purple"
         android:textSize="22sp" />
 

@@ -1,10 +1,10 @@
 package com.srg.prototype;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class splash extends AppCompatActivity {
 
@@ -13,7 +13,8 @@ public class splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Handler handler=new Handler();
+
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -21,6 +22,8 @@ public class splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },2500);
+        }, 2500);
     }
+
+
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".terms">
+
+
+    <TextView
+        android:id="@+id/termsview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rajdhani_medium"
+        android:text="1. Bardali, in all of its forms, whether it be featured on Google Play Store  or any of the mobile application (“apps”) services, is a product of Acosaf Technology  Pvt Ltd.\n
+2. By using the Bardali app, you are agreeing to be bound by the following terms and conditions.\n
+ 3. Acosaf Technology reserves the right to update and change the terms and conditions that apply to all clients without notice.\n
+4. The Client is responsible for maintaining the security of their online account and password.\n
+5. Bardali doesn’t encourage the client to post or share any illegal products, vulgar content, pornographic materials.  If found, the client shall be blocked and the legal action may be charged solely to the client and Acosaf Technology is not responsible for any of such incidents.\n
+6. The app uses the Client’s location solely for the purpose of customized newsfeed based on location nearby. The app asks for a location permission to the use via app before accessing the GPS location.\n
+7. The app may contains advertisement that may be targeted to the clients based on their location.\n
+8. All the monetary chats and deals done in ‘Bargain’ is not related to the Bardali app and clients are solely responsible for any kinds of bargain they perform.\n
+9. By using Bardali App, The Client asserts itself to have ownership and license, or some other clear right, to enter the Agreement on behalf of the website submitted to Bardali App. In the event that the right to enter the Agreement is shown to be nonexistent, or a competing claim of right is proven to be stronger, Acosaf Technology reserves the right to remove the application from its systems, or alter the Agreement to be with the proper right holder instead. No refund will be issued.\n"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/termscheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/termsview" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/termsview"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/termscheckbox"
+        android:text="I have read and accept all the terms and conditions." />
+
+ <ImageView
+     android:id="@+id/continueTerms"
+     android:layout_width="50dp"
+     android:layout_height="40dp"
+     android:src="@drawable/front_arrow"
+     android:layout_below="@id/termscheckbox"
+     android:layout_alignParentRight="true"
+     android:layout_marginEnd="10dp"/>
+
+</RelativeLayout>
