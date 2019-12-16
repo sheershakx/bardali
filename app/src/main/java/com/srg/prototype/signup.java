@@ -77,7 +77,7 @@ public class signup extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
 
-            db_url="http://testprasis.000webhostapp.com/register.php";
+            db_url="http://acosaf.000webhostapp.com/register.php";
 
 
 
@@ -126,6 +126,7 @@ public class signup extends AppCompatActivity {
             Toast.makeText(signup.this, s, Toast.LENGTH_LONG).show();
 
                 startActivity(new Intent(getApplicationContext(), login.class));
+                finish();
 
 
         }

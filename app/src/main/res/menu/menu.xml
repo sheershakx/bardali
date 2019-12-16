@@ -13,7 +13,7 @@
     <item
         android:id="@+id/nav_test"
         android:icon="@drawable/userlog"
-        android:title="Activity log"
+        android:title="My Activity"
         ></item>
 
 </menu>

@@ -24,16 +24,15 @@ public class adapterNewsfeed extends RecyclerView.Adapter<adapterNewsfeed.ViewHo
     private ArrayList<String> unit;
     // private String[] name;
     private ArrayList<String> quantity;
-    private ArrayList<String> rate;
+
     private ArrayList<String> total;
     private ArrayList<String> imageurl;
 
-    public adapterNewsfeed(ArrayList<String> id, ArrayList<String> name,  ArrayList<String> unit,ArrayList<String> quantity, ArrayList<String> rate, ArrayList<String> total,ArrayList<String> imageurl) {
+    public adapterNewsfeed(ArrayList<String> id, ArrayList<String> name, ArrayList<String> unit, ArrayList<String> quantity, ArrayList<String> total, ArrayList<String> imageurl) {
         this.id = id;
         this.name = name;
-        this.unit= unit;
+        this.unit = unit;
         this.quantity = quantity;
-        this.rate = rate;
         this.total = total;
         this.imageurl = imageurl;
 
@@ -59,16 +58,14 @@ public class adapterNewsfeed extends RecyclerView.Adapter<adapterNewsfeed.ViewHo
         String itemunit = unit.get(position);
         //name[position];
         String itemquantity = quantity.get(position);
-        String itemrate = rate.get(position);
         String itemtotal = total.get(position);
         String photourl = imageurl.get(position);
 
         holder.itemName.setText(itemname);
-        holder.itemQuantity.setText(itemquantity+" "+itemunit);
-        holder.itemRate.setText(itemrate);
+        holder.itemQuantity.setText(itemquantity + " " + itemunit);
         holder.itemTotal.setText(itemtotal);
-        if (photourl!=null && !TextUtils.isEmpty(photourl)) Picasso.get().load(photourl).into(holder.itemImage);
-
+        if (photourl != null && !TextUtils.isEmpty(photourl))
+            Picasso.get().load(photourl).into(holder.itemImage);
 
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -93,9 +90,7 @@ public class adapterNewsfeed extends RecyclerView.Adapter<adapterNewsfeed.ViewHo
         ImageView itemImage;
         TextView itemName;
         TextView itemQuantity;
-        TextView itemRate;
         TextView itemTotal;
-
         RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -103,7 +98,6 @@ public class adapterNewsfeed extends RecyclerView.Adapter<adapterNewsfeed.ViewHo
             itemImage = itemView.findViewById(R.id.itemImage);
             itemName = itemView.findViewById(R.id.itemName);
             itemQuantity = itemView.findViewById(R.id.itemQuantity);
-            itemRate = itemView.findViewById(R.id.itemRate);
             itemTotal = itemView.findViewById(R.id.itemTotal);
             relativeLayout = itemView.findViewById(R.id.layoutfeed);
         }

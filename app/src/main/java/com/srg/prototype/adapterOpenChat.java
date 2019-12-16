@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class adapterOpenChat extends RecyclerView.Adapter<adapterOpenChat.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.chatlayout, parent, false);
+        View view = inflater.inflate(R.layout.chatlayoutother, parent, false);
         return new ViewHolder(view);
 
 
@@ -49,10 +50,13 @@ public class adapterOpenChat extends RecyclerView.Adapter<adapterOpenChat.ViewHo
         String Message = message.get(position);
         if (Userid != null && Userid.contentEquals(login.sessionid)) {
 
-            holder.chatdisplay.setText("Me: " + Message);
+            holder.cardViewo.setVisibility(View.GONE);
+            holder.chatdisplayme.setText("  " + Message + "  ");
         } else if (Userid != null && Userid.contentEquals(ItemDescription.suid)) {
-            holder.chatdisplay.setText("Seller: " + Message);
-        } else if (Userid != null) holder.chatdisplay.setText("*: " + Message);
+            holder.cardViewm.setVisibility(View.GONE);
+            //    holder.cardViewo.setVisibility(View.VISIBLE);
+            holder.chatdisplayother.setText("Seller: " + Message+"  ");
+        } else if (Userid != null)  holder.chatdisplayother.setText("*: " + Message+"  ");
         else Toast.makeText(context, "Message content in empty", Toast.LENGTH_SHORT).show();
 
 
@@ -68,16 +72,19 @@ public class adapterOpenChat extends RecyclerView.Adapter<adapterOpenChat.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView chatdisplay;
+        TextView chatdisplayother;
+        TextView chatdisplayme;
+        CardView cardViewo;
+        CardView cardViewm;
 
-
-        RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            chatdisplay = itemView.findViewById(R.id.textviewChat);
-            relativeLayout = itemView.findViewById(R.id.layoutchat);
+            chatdisplayother = itemView.findViewById(R.id.textviewChatOther);
+            chatdisplayme = itemView.findViewById(R.id.textviewChatMe);
+            cardViewo = itemView.findViewById(R.id.cardview_chatLayoutO);
+            cardViewm = itemView.findViewById(R.id.cardview_chatLayoutM);
         }
     }
 }

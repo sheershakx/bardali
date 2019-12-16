@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -41,7 +39,7 @@ import java.util.UUID;
 
 public class seller_tab extends AppCompatActivity {
     public static String Name;
-    EditText name, desc, quantity, rate, total;
+    EditText name, desc, quantity, total;
     CheckBox delivery;
     Spinner unit;
     Button upload, choosephoto;
@@ -62,7 +60,7 @@ public class seller_tab extends AppCompatActivity {
         desc = findViewById(R.id.itemDesc1);
         quantity = findViewById(R.id.itemQuantity1);
         unit = findViewById(R.id.unit);  //spinner
-        rate = findViewById(R.id.itemRate1);
+
         imageView = findViewById(R.id.choosedimageview);      //imageview
         total = findViewById(R.id.itemTotal1);
         delivery = findViewById(R.id.homedelivery1);    //checkbox
@@ -74,29 +72,6 @@ public class seller_tab extends AppCompatActivity {
         myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         unit.setAdapter(myadapter);
 
-        rate.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                try {
-                    int q = Integer.parseInt(quantity.getText().toString());
-                    int r = Integer.parseInt(rate.getText().toString());
-                    String t = String.valueOf(q * r);
-                    total.setText(t);
-                } catch (RuntimeException e) {
-                   // Toast.makeText(seller_tab.this, "Exception just occured", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
 
         choosephoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +90,6 @@ public class seller_tab extends AppCompatActivity {
                 String Desc = desc.getText().toString();
                 String Quantity = quantity.getText().toString();
                 String Unit = unit.getSelectedItem().toString();      //spinner
-                String Rate = rate.getText().toString();
                 String Total = total.getText().toString();
                 Boolean Delivery = delivery.isChecked();//checkbox
                 if (Delivery.toString() == "true") {
@@ -127,9 +101,9 @@ public class seller_tab extends AppCompatActivity {
                 String uname = login.sessionname;
 
 
-                if (!TextUtils.isEmpty(Name) && !TextUtils.isEmpty(Desc) && !TextUtils.isEmpty(Quantity) && !TextUtils.isEmpty(Unit) && !TextUtils.isEmpty(Rate) && !TextUtils.isEmpty(Total)) {
+                if (!TextUtils.isEmpty(Name) && !TextUtils.isEmpty(Desc) && !TextUtils.isEmpty(Quantity) && !TextUtils.isEmpty(Unit) &&  !TextUtils.isEmpty(Total)) {
                     postItem postItem = new postItem();
-                    postItem.execute(Name, Desc, Quantity, Unit, Rate, Total, DeliveryString, uid, uname);
+                    postItem.execute(Name, Desc, Quantity, Unit, Total, DeliveryString, uid, uname);
                 } else
                     Toast.makeText(seller_tab.this, "Some fields cannot be blank", Toast.LENGTH_LONG).show();
             }
@@ -207,11 +181,10 @@ public class seller_tab extends AppCompatActivity {
             desc = args[1];
             quantity = args[2];
             unit = args[3];
-            rate = args[4];
-            total = args[5];
-            delivery = args[6];
-            uid = args[7];
-            uname = args[8];
+            total = args[4];
+            delivery = args[5];
+            uid = args[6];
+            uname = args[7];
 
 
             try {
@@ -225,11 +198,11 @@ public class seller_tab extends AppCompatActivity {
                         URLEncoder.encode("desc", "UTF-8") + "=" + URLEncoder.encode(desc, "UTF-8") + "&" +
                         URLEncoder.encode("quantity", "UTF-8") + "=" + URLEncoder.encode(quantity, "UTF-8") + "&" +
                         URLEncoder.encode("unit", "UTF-8") + "=" + URLEncoder.encode(unit, "UTF-8") + "&" +
-                        URLEncoder.encode("rate", "UTF-8") + "=" + URLEncoder.encode(rate, "UTF-8") + "&" +
                         URLEncoder.encode("total", "UTF-8") + "=" + URLEncoder.encode(total, "UTF-8") + "&" +
                         URLEncoder.encode("delivery", "UTF-8") + "=" + URLEncoder.encode(delivery, "UTF-8") + "&" +
                         URLEncoder.encode("uid", "UTF-8") + "=" + URLEncoder.encode(uid, "UTF-8") + "&" +
                         URLEncoder.encode("imageurl", "UTF-8") + "=" + URLEncoder.encode(downloadurl, "UTF-8") + "&" +
+                        URLEncoder.encode("status", "UTF-8") + "=" + URLEncoder.encode("0", "UTF-8") + "&" +
                         URLEncoder.encode("uname", "UTF-8") + "=" + URLEncoder.encode(uname, "UTF-8");
 
 

@@ -16,6 +16,7 @@ public class logoutDialog extends AppCompatDialogFragment {
                 .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(getContext(),login.class));
                        getActivity().finish();
 
 

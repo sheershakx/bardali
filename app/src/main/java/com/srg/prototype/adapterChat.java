@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,13 +22,10 @@ public class adapterChat extends RecyclerView.Adapter<adapterChat.ViewHolder> {
     // private String[] name;
 
 
-    public adapterChat(ArrayList<String> sentid,ArrayList<String> recvid,ArrayList<String> message) {
+    public adapterChat(ArrayList<String> sentid, ArrayList<String> recvid, ArrayList<String> message) {
         this.sentid = sentid;
         this.recvid = recvid;
         this.message = message;
-
-
-
 
 
     }
@@ -36,34 +34,31 @@ public class adapterChat extends RecyclerView.Adapter<adapterChat.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.chatlayout, parent, false);
+        View view = inflater.inflate(R.layout.chatlayoutother, parent, false);
         return new ViewHolder(view);
-
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Context context = holder.itemView.getContext();
 
-       
+
         String Sentid = sentid.get(position);
         String Recvid = recvid.get(position);
         String Message = message.get(position);
         if (Sentid.contentEquals(login.sessionid) && Recvid.contentEquals(chat.senderID)) {
 
-            holder.chatdisplay.setText("Me: "+ Message );
+            holder.cardViewo.setVisibility(View.GONE);
+            // holder.cardViewm.setVisibility(View.VISIBLE);
+            holder.chatdisplayme.setText("  " + Message + "  ");
+        } else {
+            holder.cardViewm.setVisibility(View.GONE);
+            //    holder.cardViewo.setVisibility(View.VISIBLE);
+            holder.chatdisplayother.setText("  " + Message + "  ");
         }
-        else holder.chatdisplay.setText(chat.sendername+": "+ Message );
 
 
-
-
-
-
-
-
-      //  holder.chatdisplay.setText(msgreceived);
+        //  holder.chatdisplay.setText(msgreceived);
 
     }
 
@@ -75,16 +70,19 @@ public class adapterChat extends RecyclerView.Adapter<adapterChat.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView chatdisplay;
+        TextView chatdisplayother;
+        TextView chatdisplayme;
+        CardView cardViewo;
+        CardView cardViewm;
 
-
-        RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            chatdisplay = itemView.findViewById(R.id.textviewChat);
-            relativeLayout = itemView.findViewById(R.id.layoutchat);
+            chatdisplayother = itemView.findViewById(R.id.textviewChatOther);
+            chatdisplayme = itemView.findViewById(R.id.textviewChatMe);
+            cardViewo = itemView.findViewById(R.id.cardview_chatLayoutO);
+            cardViewm = itemView.findViewById(R.id.cardview_chatLayoutM);
         }
     }
 }

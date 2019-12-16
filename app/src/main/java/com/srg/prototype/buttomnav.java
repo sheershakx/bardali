@@ -130,7 +130,6 @@ public class buttomnav extends AppCompatActivity {
                             ITEMUNIT.clear();
                             ITEMNAME.clear();
                             QUANTITY.clear();
-                            RATE.clear();
                             TOTAL.clear();
                             IMAGEURL.clear();
                             new getInfo().execute();
@@ -141,7 +140,9 @@ public class buttomnav extends AppCompatActivity {
                             break;
 
                         case R.id.nav_test:
-                            startActivity(new Intent(getApplicationContext(),logactivity.class ));
+                            selectedFragment = new activityFragment();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, selectedFragment).commit();
+                           // startActivity(new Intent(getApplicationContext(),logactivity.class ));
                             break;
                     }
 
@@ -272,14 +273,12 @@ public void postitem(View view){
                         itemname = jsonObject.getString("ItemName");
                         itemunit=jsonObject.getString("ItemUnit");
                         Quantity = jsonObject.getString("ItemQuantity");
-                        Rate = jsonObject.getString("ItemRate");
                         Total = jsonObject.getString("ItemTotal");
                         imageurl = jsonObject.getString("imageurl");
                         ID.add(id);
                         ITEMUNIT.add(itemunit);
                         ITEMNAME.add(itemname);
                         QUANTITY.add(Quantity);
-                        RATE.add(Rate);
                         TOTAL.add(Total);
                         IMAGEURL.add(imageurl);
 
@@ -306,7 +305,7 @@ public void postitem(View view){
         protected void onPostExecute(String s) {
             RecyclerView itemlist = findViewById(R.id.recyclerview);
             itemlist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-            itemlist.setAdapter(new adapterNewsfeed(ID, ITEMNAME,ITEMUNIT, QUANTITY, RATE, TOTAL,IMAGEURL));
+            itemlist.setAdapter(new adapterNewsfeed(ID, ITEMNAME,ITEMUNIT, QUANTITY, TOTAL,IMAGEURL));
             progressDialog.dismiss();
 
         }
